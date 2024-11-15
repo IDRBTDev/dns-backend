@@ -1,0 +1,21 @@
+dns:
+  bind:
+    server:
+      ip-address: '"173.27.143.235"; // Ensure the correct BIND Server''s IP address'
+server:
+  port: 9008
+spring:
+  application:
+    name: DNS-DOMAIN-SERVICE
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: manager
+    url: jdbc:postgresql://localhost:5432/domain_registry
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true

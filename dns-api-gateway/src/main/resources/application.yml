@@ -1,0 +1,87 @@
+server:
+  port: 9002
+  max-http-request-header-size: 800KB
+
+spring:
+  application:
+    name: DNS-API-GATEWAY
+  cloud:
+    gateway:
+        routes:
+        - id: DNS-ADMIN-USERS
+          uri: lb://DNS-ADMIN-SERVICE
+          predicates:
+            - Path=/dr/admin
+            - Method=POST
+          
+        - id: DNS-ADMIN-ROLES
+          uri: lb://DNS-ADMIN-SERVICE
+          predicates:
+            - Path=/dr/roles
+            - Method=GET,POST,PUT,DELETE
+            
+        - id: DNS-CONTACT-ADMINISTRATIVE
+          uri: lb://DNS-CONTACT-SERVICE
+          predicates:
+            - Path=/dr/administrativeContact
+            - Method=GET,POST,PUT,DELETE
+            
+        - id: DNS-CONTACT-ORGANISATION
+          uri: lb://DNS-CONTACT-SERVICE
+          predicates:
+            - Path=/dr/organisationContact
+            - Method=GET,POST,PUT,DELETE  
+            
+        - id: DNS-CONTACT-TECHNICAL
+          uri: lb://DNS-CONTACT-SERVICE
+          predicates:
+            - Path=/dr/technicalContact
+            - Method=GET,POST,PUT,DELETE
+        
+        - id: DNS-DECLARATION-DF
+          uri: lb://DNS-DECLARATION-SERVICE
+          predicates:
+            - Path=/dr/login
+            - Method=GET,POST,PUT,DELETE
+        
+        - id: DNS-DECLARATION-DF
+          uri: lb://DNS-DECLARATION-SERVICE
+          predicates:
+            - Path=/dr/declaration
+            - Method=GET,POST,PUT,DELETE
+            
+        - id: DNS-DOCUMENT
+          uri: lb://DNS-DOCUMENT-SERVICE
+          predicates:
+            - Path=/dr/documents
+            - Method=GET,POST,PUT,DELETE
+            
+        - id: DNS-DOMAIN-BILLING
+          uri: lb://DNS-DOMAIN-SERVICE
+          predicates:
+            - Path=/dr/billingHistory
+            - Method=GET,POST,PUT,DELETE
+            
+        - id: DNS-DOMAIN-DOMAIN
+          uri: lb://DNS-DOMAIN-SERVICE
+          predicates:
+            - Path=/dr/domain
+            - Method=GET,POST,PUT,DELETE
+        
+        - id: DNS-DOMAIN-REGISTRATION
+          uri: lb://DNS-DOMAIN-SERVICE
+          predicates:
+            - Path=/dr/domainRegistration
+            - Method=GET,POST,PUT,DELETE
+            
+        - id: DNS-NAMESERVER
+          uri: lb://DNS-NAMESERVER-SERVICE
+          predicates:
+            - Path=/dr/nameServer
+            - Method=GET,POST,PUT,DELETE
+            
+        - id: DNS-ORGANISATION
+          uri: lb://DNS-ORGANISATION-SERVICE
+          predicates:
+            - Path=/dr/organisationDetails
+            - Method=GET,POST,PUT,DELETE    

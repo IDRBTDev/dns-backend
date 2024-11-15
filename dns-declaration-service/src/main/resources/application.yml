@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: DNS-DECLARATION-SERVICE
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: manager
+    url: jdbc:postgresql://localhost:5432/domain_registry
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    
+server:
+  port: 9006

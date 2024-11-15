@@ -1,0 +1,30 @@
+file:
+  upload-dir: ${catalina.base}/uploads
+server:
+  port: 9007
+spring:
+  application:
+    name: DNS-DOCUMENT-SERVICE
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: manager
+    url: jdbc:postgresql://localhost:5432/domain_registry
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 20MB
+  web:
+    cors:
+      allow-credentials: true
+      allowed-headers: '*'
+      allowed-methods: GET, POST, PUT, DELETE, OPTIONS
+      allowed-origins: http://localhost:3000

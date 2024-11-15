@@ -1,0 +1,15 @@
+server:
+  port: 9004
+
+spring:
+  application:
+    name: DNS-CONFIG-SERVER
+  cloud:
+    config:
+      server:
+        #bootstrap: true
+        git:
+          uri: https://github.com/IKCONDev/ums-config-server
+          clone-on-start: true
+          username: IKCONDev
+          password: 
