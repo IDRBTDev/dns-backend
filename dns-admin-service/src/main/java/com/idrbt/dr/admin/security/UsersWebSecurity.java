@@ -55,8 +55,8 @@ public class UsersWebSecurity {
 		http.csrf().disable();
 		// provide authorization
 		http.authorizeRequests()
-				.requestMatchers("/users/**").permitAll()
-				.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+				.antMatchers("/dr/users/**").permitAll()
+				.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 				// register your custom authentication filter with spring security
 				.and().addFilter(getAuthenticationFilter(http));
 		log.info("filterChain() : SecurityFilterChain bean object created.");

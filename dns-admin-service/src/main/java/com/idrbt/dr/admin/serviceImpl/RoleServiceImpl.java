@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
+
 import org.apache.logging.log4j.util.Strings;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +19,6 @@ import com.idrbt.dr.admin.repository.RoleRepository;
 import com.idrbt.dr.admin.repository.UserRepository;
 import com.idrbt.dr.admin.service.RoleService;
 import com.idrbt.dr.admin.util.DomainRegistrarConstants;
-
-import jakarta.persistence.EntityNotFoundException;
-import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

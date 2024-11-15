@@ -1,3 +1,6 @@
+login:
+  url:
+    path: /dr/users/login
 server:
   port: 9003
 spring:
